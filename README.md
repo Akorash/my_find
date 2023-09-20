@@ -1,3 +1,4 @@
 # my_find
 
-Hi :)
+C++ Program
+Ubuntu 20.04 WSL
