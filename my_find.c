@@ -18,6 +18,35 @@
 
 int main(int argc, char *argv[])
 {
+   int c;
+   while ((c = getopt(argc, argv, "iR")) != EOF)
+   {
+        switch (c)
+        {
+         case '?':
+            fprintf(stderr, "unknown opt\n");
+            break;
+         case 'i':
+            fprintf(stderr, "Case sensitive requested\n");
+            break;
+         case 'R':
+            fprintf(stderr, "Recursive search requested\n");
+            break;
+         default:
+            fprintf(stderr, "Default\n");
+            return 0;
+        }
+   }
+
+   char *filepath = argv[optind];
+   optind++;
+   fprintf(stderr, "filepath: %s\n", filepath);
+
+   for(int i = 0; i < argc - optind; i++)
+   {
+      fprintf(stderr,"files: %s\n",argv[optind + i]);
+   }
+   
    // What are my arguments, parsing
    // Switch case
    // If only one argument, dont fork
